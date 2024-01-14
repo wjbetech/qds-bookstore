@@ -13,7 +13,13 @@ interface TextProps {
   // font color
   color?: string;
 
+  // set bold
+  decoration?: string;
+
   // example text 
+  fontWeight?: string;
+
+  // text
   text?: string;
 
 }
@@ -23,23 +29,24 @@ export const Text = ({
   primary = false,
   fontSize,
   color,
+  fontWeight,
   text,
   ...props
 }: TextProps) => {
-  const mode = primary? "storybook-text--primary" : "storybook-text--secondary";
   return (
-    <p
-      className={["storybook-text", `storybook-text--${fontSize}`, mode].join(' ')}
+    <div
+      className={["storybook-text"].join(' ')}
       {...props}
     >
       {text}
       {/* define font-size and color CSS */}
       <style jsx>{`
-        text {
+        div {
           font-size: ${fontSize}px;
           color: ${color};
+          font-weight: ${fontWeight};
         }
       `}</style>
-    </p>
+    </div>
   );
 }
