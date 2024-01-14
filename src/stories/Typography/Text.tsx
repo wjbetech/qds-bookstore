@@ -21,7 +21,7 @@ interface TextProps {
 // build our rendered ui component
 export const Text = ({
   primary = false,
-  fontSize = 16,
+  fontSize,
   color,
   text,
   ...props
