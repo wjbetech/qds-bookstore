@@ -8,7 +8,7 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     variant: {
-      options: ["outlined", "standard", "filled"],
+      options: ["standard", "outlined"],
       control: { type: "dropdown" },
     }
   }
@@ -23,6 +23,28 @@ export const Control: Story = {
     label: "Control Input",
     type: "text",
     placeholder: "Control Input Placeholder",
+    maxLength: 15,
+    minLength: 5,
+  },
+}
+
+export const Standard: Story = {
+  args: {
+    label: "Standard Input",
+    type: "text",
+    placeholder: "Standard Input Placeholder",
+    variant: "standard",
+    maxLength: 15,
+    minLength: 5,
+  },
+}
+
+export const Outlined: Story = {
+  args: {
+    label: "Outlined Input",
+    type: "text",
+    placeholder: "Outlined Input Placeholder",
+    variant: "outlined",
     maxLength: 15,
     minLength: 5,
   },

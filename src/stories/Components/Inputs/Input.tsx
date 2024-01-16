@@ -9,6 +9,9 @@ interface InputProps {
   // the value for the input box
   value?: string;
 
+  // variant of input
+  variant?: "standard" | "outlined"
+
   // the type of the input box
   type?: string;
 
@@ -33,6 +36,7 @@ export const Input: React.FC<InputProps> = ({
   placeholder,
   maxLength = 15,
   minLength = 5,
+  variant,
   onChange,
   ...props
 }) => {
@@ -48,6 +52,7 @@ export const Input: React.FC<InputProps> = ({
         type={type}
         placeholder={placeholder}
         maxLength={maxLength}
+        variant={variant}
         onChange={(e) => onChange(e.target.value)}
         {...props}
       />
