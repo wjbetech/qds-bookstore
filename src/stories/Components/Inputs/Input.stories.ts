@@ -6,6 +6,12 @@ const meta = {
   title: "Components/Inputs",
   component: Input,
   tags: ["autodocs"],
+  argTypes: {
+    variant: {
+      options: ["outlined", "standard", "filled"],
+      control: { type: "dropdown" },
+    }
+  }
 } satisfies Meta<typeof Input>;
 
 export default meta;
@@ -16,13 +22,8 @@ export const Control: Story = {
   args: {
     label: "Control Input",
     type: "text",
-    value: "control",
     placeholder: "Control Input Placeholder",
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
-      console.log(e.target.value)
-    },
-    disabled: false,
-    required: true,
     maxLength: 15,
-  }
+    minLength: 5,
+  },
 }

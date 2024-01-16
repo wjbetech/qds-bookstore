@@ -21,6 +21,7 @@
     "@quotalab/style": "^0.0.8",
     "@quotalab/types": "^1.2.2",
     "@quotalab/utils": "^1.23.0",
+    "framer-motion": "^10.18.0",
     "next": "14.0.4",
     "prop-types": "^15.8.1",
     "react": "^18",

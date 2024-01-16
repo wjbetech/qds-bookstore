@@ -1,60 +1,57 @@
-import React from 'react'
-import { Input as qdsInput } from "@quotalab/qds"
-
+import React, { useState } from 'react';
+import { Input as qdsInput } from "@quotalab/qds";
+``
 interface InputProps {
 
-  // label for the input field
+  // label for the input box
   label?: string;
 
-  // value of the input field
+  // the value for the input box
   value?: string;
 
-  // type of the input field
+  // the type of the input box
   type?: string;
 
-  // input placeholder text
+  // placeholder for the input box
   placeholder?: string;
 
-  // disabled option
-  disabled?: boolean;
-
-  // make input required
-  required?: boolean;
-
-  // max length of the input field
+  // max input length
   maxLength?: number;
 
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  // min input length
+  minLength?: number;
+
+  // onChange handler
+  onChange?: (value: string) => void;
 
 }
 
-// build our input ui component
-
-export const Input = ({
-  label = "",
-  value,
+export const Input: React.FC<InputProps> = ({
+  label,
   type,
+  value,
   placeholder,
-  disabled = false,
-  required,
-  onChange = (event: React.ChangeEvent<HTMLInputElement>) => {},
   maxLength = 15,
+  minLength = 5,
+  onChange,
   ...props
-}: InputProps) => {
+}) => {
+
+  const QdsInput = qdsInput;
+
   return (
     <>
       <label>{label}</label>
-      <Input
+      <QdsInput
         label={label}
         value={value}
         type={type}
         placeholder={placeholder}
-        disabled={disabled}
-        required={required}
         maxLength={maxLength}
-        onChange={onChange}
+        onChange={(e) => onChange(e.target.value)}
         {...props}
       />
+      <style jsx>{`input { margin-top: 10px }`}</style>
     </>
   );
-}
+};
